@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import { teknologiPendekatan } from "../data";
-import { Cpu, TrendingUp, Layers, Sliders, Leaf, Shield, CheckCircle } from "lucide-react";
+import { Cpu, TrendingUp, Layers, Sliders, Leaf, Shield } from "lucide-react";
 
 // Icon mapping dictionary
 const iconMap: Record<string, any> = {
@@ -81,12 +81,6 @@ export default function Teknologi() {
                   </div>
                 </div>
 
-                <div className="mt-8 pt-4 border-t border-slate-800/40 flex items-center justify-between text-xs text-slate-500 font-mono">
-                  <span>METODOLOGI SPR</span>
-                  <span className="flex items-center text-amber-500/70 group-hover:text-amber-400 font-bold transition-colors">
-                    AKTIF <CheckCircle className="h-3 w-3 ml-1" />
-                  </span>
-                </div>
               </motion.div>
             );
           })}

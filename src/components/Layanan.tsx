@@ -5,7 +5,6 @@ import {
   Briefcase, 
   BookOpen, 
   CheckCircle2, 
-  ArrowUpRight, 
   Layers, 
   Settings, 
   FileCheck, 
@@ -48,7 +47,7 @@ export default function Layanan() {
             Solusi Rekayasa Komprehensif
           </span>
           <h2 className="font-display font-black text-3xl sm:text-4xl text-white tracking-tight">
-            Layanan Utama Kami
+            Layanan Utama
           </h2>
           <p className="font-sans font-light text-slate-400 text-sm sm:text-base leading-relaxed">
             SPR menawarkan layanan terintegrasi mulai dari studi awal rekayasa hingga program peningkatan kompetensi praktis berbasis industri.
@@ -128,9 +127,6 @@ export default function Layanan() {
                       <div className="p-3 bg-slate-900 border border-slate-800 rounded-xl text-amber-500 group-hover:text-amber-400 group-hover:bg-amber-950/10 transition-colors">
                         <ServiceIcon className="h-5 w-5" />
                       </div>
-                      <span className="font-mono text-xs text-slate-600 font-bold">
-                        SPR-L{activeTab === 0 ? "A" : "B"}{idx + 1}
-                      </span>
                     </div>
 
                     <div className="space-y-2">
@@ -145,9 +141,6 @@ export default function Layanan() {
                     {/* Supporting sub bullets if they exist (e.g. perhiasan kriya logam) */}
                     {item.bullets && item.bullets.length > 0 && (
                       <div className="pt-3 border-t border-slate-900">
-                        <p className="text-[10px] font-mono font-bold tracking-widest text-slate-500 uppercase mb-2">
-                          CAKUPAN PROGRAM:
-                        </p>
                         <ul className="grid grid-cols-2 gap-2 text-xs">
                           {item.bullets.map((bullet, bIdx) => (
                             <li key={bIdx} className="flex items-center space-x-1.5 text-slate-300">
@@ -158,13 +151,6 @@ export default function Layanan() {
                         </ul>
                       </div>
                     )}
-                  </div>
-
-                  <div className="mt-8 pt-4 border-t border-slate-900 flex items-center justify-between text-xs text-slate-500">
-                    <span className="font-mono">STANDAR INDUSTRI</span>
-                    <span className="flex items-center text-amber-500/80 font-bold group-hover:translate-x-1 transition-all duration-200">
-                      Selengkapnya <ArrowUpRight className="h-3.5 w-3.5 ml-1" />
-                    </span>
                   </div>
                 </div>
               );
