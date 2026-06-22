@@ -15,7 +15,7 @@ export default function VisiMisi() {
             Arah Strategis Perusahaan
           </h2>
           <h3 className="font-display font-bold text-3xl sm:text-4xl text-white tracking-tight">
-            Visi & Misi PT. SPR
+            Visi Misi
           </h3>
           <div className="w-16 h-1 bg-amber-500 mx-auto rounded-full" />
         </div>
