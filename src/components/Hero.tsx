@@ -76,7 +76,7 @@ export default function Hero() {
       {/* SECTION 1: Unified Corporate Header */}
       <section
         id="beranda"
-        className="relative min-h-[90vh] max-md:min-h-[60vh] pt-32 max-md:pt-14 pb-16 max-md:pb-6 flex flex-col justify-center items-center bg-slate-950 text-white overflow-hidden text-center"
+        className="relative min-h-screen max-md:min-h-[60vh] pt-32 max-md:pt-14 pb-16 max-md:pb-6 flex flex-col justify-center items-center bg-slate-950 text-white overflow-hidden text-center"
       >
          <div 
             className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105 pointer-events-none transform transition-transform duration-[10s]"
