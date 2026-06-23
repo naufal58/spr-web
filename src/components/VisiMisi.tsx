@@ -47,7 +47,7 @@ export default function VisiMisi() {
 
             <div className="mt-8 pt-6 border-t border-slate-800/80">
               <div className="text-xs font-mono font-bold tracking-widest text-amber-400 uppercase">
-                PT. SAKATOYO PRIMA RESOURCES
+                SAKATOYO PRIMA RESOURCES
               </div>
             </div>
           </motion.div>

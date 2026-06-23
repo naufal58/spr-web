@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import "../index.css";
 
 export const metadata: Metadata = {
-  title: "PT Sakatoyo Prima Resources (SPR)",
+  title: "Sakatoyo Prima Resources (SPR)",
   description: "Profil Perusahaan PT Sakatoyo Prima Resources (SPR) - Solusi Rekayasa Proses Penambangan, Pengolahan Mineral, Metalurgi, dan Sumber Daya Berkelanjutan",
   icons: {
     icon: [

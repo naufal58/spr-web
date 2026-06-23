@@ -25,12 +25,10 @@ export default function Navbar({ activeSection }: NavbarProps) {
   }, []);
 
   const navLinks = [
-    { name: "Beranda", href: "#beranda" },
+    { name: "Home", href: "#beranda" },
     { name: "Visi & Misi", href: "#visi-misi" },
-    { name: "Teknologi", href: "#teknologi" },
-    { name: "Layanan", href: "#layanan" },
-    { name: "Pendukung", href: "#layanan-pendukung" },
-    { name: "Mengapa SPR", href: "#mengapa-spr" },
+    { name: "Solusi dan Teknologi", href: "#teknologi" },
+    { name: "Services", href: "#layanan" },
     { name: "Kontak", href: "#kontak" },
   ];
 
@@ -70,14 +68,6 @@ export default function Navbar({ activeSection }: NavbarProps) {
           >
             <div className="group-hover:scale-105 transition-transform duration-200 flex items-center justify-center">
               <SakatoyoLogo className="h-10 w-10 sm:h-11 sm:w-11" />
-            </div>
-            <div className="flex flex-col">
-              <span className="font-display font-extrabold text-lg sm:text-xl tracking-wider text-white">
-                PT. SAKATOYO
-              </span>
-              <span className="font-mono text-[8px] sm:text-[9px] tracking-[0.22em] text-amber-500 leading-none font-bold">
-                PRIMA RESOURCES
-              </span>
             </div>
           </a>
 

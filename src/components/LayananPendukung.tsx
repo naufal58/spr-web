@@ -26,7 +26,7 @@ export default function LayananPendukung() {
               Mendukung Ekosistem Hulu ke Hilir
             </span>
             <h2 className="font-display font-black text-3xl sm:text-4xl text-white tracking-tight leading-tight">
-              Layanan Pendukung
+              Other Services
             </h2>
             <p className="font-sans font-light text-slate-300 text-sm sm:text-base leading-relaxed">
               Untuk memberikan solusi yang lebih menyeluruh, SPR menyediakan layanan tambahan terpadu dalam ranah eksplorasi, regulasi pertambangan, dan optimalisasi sirkular sumber daya sekunder.

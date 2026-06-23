@@ -27,7 +27,7 @@ export default function Teknologi() {
               Inovasi & Pendekatan Rekayasa
             </span>
             <h2 className="font-display font-black text-3xl sm:text-4xl text-white tracking-tight leading-none">
-              Teknologi & Pendekatan
+              Solusi dan Teknologi
             </h2>
           </div>
           <div className="lg:col-span-8">

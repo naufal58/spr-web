@@ -93,7 +93,7 @@ export const teknologiPendekatan = {
 
 export const layananUtama: LayananCategory[] = [
   {
-    categoryTitle: "A. Konsultansi Teknik dan Rekayasa",
+    categoryTitle: "Konsultansi Teknik dan Rekayasa",
     categorySubtitle: "SPR menyediakan layanan konsultansi dan rekayasa yang mencakup seluruh tahapan proyek proses penambangan dan pengolahan mineral.",
     items: [
       {
@@ -123,7 +123,7 @@ export const layananUtama: LayananCategory[] = [
     ]
   },
   {
-    categoryTitle: "B. Pelatihan dan Pengembangan Sumber Daya Manusia",
+    categoryTitle: "Pelatihan dan Pengembangan Sumber Daya Manusia",
     categorySubtitle: "SPR menyelenggarakan berbagai program pelatihan teknis berbasis praktik guna meningkatkan kompetensi tenaga kerja di bidang pertambangan, metalurgi, manufaktur, dan otomasi industri.",
     items: [
       {

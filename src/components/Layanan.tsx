@@ -47,7 +47,7 @@ export default function Layanan() {
             Solusi Rekayasa Komprehensif
           </span>
           <h2 className="font-display font-black text-3xl sm:text-4xl text-white tracking-tight">
-            Layanan Utama
+            Services
           </h2>
           <p className="font-sans font-light text-slate-400 text-sm sm:text-base leading-relaxed">
             SPR menawarkan layanan terintegrasi mulai dari studi awal rekayasa hingga program peningkatan kompetensi praktis berbasis industri.
@@ -82,7 +82,7 @@ export default function Layanan() {
                 
                 <Icon className={`h-5 w-5 transition-transform duration-200 group-hover:scale-105 ${isSelected ? "text-amber-500" : "text-slate-400"}`} />
                 <span className="text-left leading-tight truncate">
-                  {idx === 0 ? "A. Konsultansi & Rekayasa" : "B. Pelatihan & SDM"}
+                  {idx === 0 ? "Konsultansi & Rekayasa" : "Pelatihan & SDM"}
                 </span>
                 
                 {isSelected && (

@@ -64,10 +64,6 @@ export default function MengapaMemilih() {
                     </p>
                   </div>
                 </div>
-
-                <div className="mt-6 pt-4 border-t border-slate-900 flex items-center justify-end text-[10px] font-mono text-slate-500 uppercase tracking-wider">
-                  <span>0{idx + 1}</span>
-                </div>
               </motion.div>
             );
           })}

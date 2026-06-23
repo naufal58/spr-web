@@ -32,13 +32,9 @@ export default function Footer() {
           {/* Column 1: Company Logo and Description (Left 5 Cols) */}
           <div className="lg:col-span-5 space-y-6">
             <div className="flex items-center space-x-3">
-              <SakatoyoLogo className="h-12 w-12" />
               <div className="flex flex-col">
-                <span className="font-display font-extrabold text-lg text-white uppercase tracking-wider">
-                  PT. SAKATOYO PRIMA
-                </span>
-                <span className="font-mono text-[9px] tracking-[0.24em] text-amber-500 leading-none font-bold">
-                  RESOURCES (SPR)
+                <span className="font-display font-extrabold text-lg text-amber-500 uppercase tracking-wider">
+                  SAKATOYO PRIMA RESOURCES
                 </span>
               </div>
             </div>
@@ -135,10 +131,10 @@ export default function Footer() {
         <div className="pt-8 border-t border-slate-900/80 flex flex-col sm:flex-row items-center justify-between gap-6">
           <div className="flex flex-col items-center sm:items-start text-center sm:text-left space-y-1">
             <span className="font-display font-extrabold text-xs text-white uppercase tracking-wider">
-              PT. SAKATOYO PRIMA RESOURCES
+              SAKATOYO PRIMA RESOURCES
             </span>
             <p className="font-sans text-xs text-slate-500 font-light">
-              &copy; {new Date().getFullYear()} PT. Sakatoyo Prima Resources. All Rights Reserved. Bandung, Indonesia.
+              &copy; {new Date().getFullYear()} Sakatoyo Prima Resources. All Rights Reserved. Bandung, Indonesia.
             </p>
           </div>
 
