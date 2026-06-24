@@ -200,9 +200,9 @@ export const kontakInfo = {
   address: "Jl. Mohammad Toha No.49, Pungkur, Kec. Regol, Kota Bandung, Jawa Barat 40252",
   region: "Jawa Barat – Indonesia",
   phone: "+62 22-63173009",
-  email: "support@sakatoyo.co.id",
-  website: "www.sakatoyo.co.id",
-  rawWebsite: "https://www.sakatoyo.co.id",
+  email: "support@sakatoyo.id",
+  website: "www.sakatoyo.id",
+  rawWebsite: "https://www.sakatoyo.id",
   coordination: {
     lat: -6.937299, 
     lng: 107.610543
