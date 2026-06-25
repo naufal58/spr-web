@@ -1,4 +1,3 @@
-import { motion } from "motion/react";
 import { teknologiPendekatan } from "../data";
 import { Cpu, TrendingUp, Layers, Sliders, Leaf, Shield } from "lucide-react";
 import Carousel from "./Carousel";
@@ -15,12 +14,8 @@ export default function Teknologi() {
   const cards = teknologiPendekatan.items.map((item) => {
     const IconComp = iconMap[item.icon] || Cpu;
     return (
-      <motion.div
+      <div
         key={item.title}
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.4 }}
         className="flex flex-col justify-between border rounded-2xl p-6 sm:p-8 transition-all duration-300 relative overflow-hidden group shadow-lg bg-slate-900/60 hover:bg-slate-900 border-slate-800/80 hover:border-slate-700 h-full"
       >
         <div className="absolute -top-10 -right-10 w-32 h-32 bg-amber-500/5 rounded-full blur-2xl group-hover:bg-amber-500/10 transition-all duration-300 pointer-events-none" />
@@ -39,7 +34,7 @@ export default function Teknologi() {
             </p>
           </div>
         </div>
-      </motion.div>
+      </div>
     );
   });
 

@@ -1,4 +1,3 @@
-import { motion } from "motion/react";
 import { mengapaSPR } from "../data";
 import { Users, Briefcase, Award, Sparkles, BookOpen, Heart, Shield } from "lucide-react";
 import Carousel from "./Carousel";
@@ -16,12 +15,8 @@ export default function MengapaMemilih() {
   const cards = mengapaSPR.map((item, idx) => {
     const IconComponent = iconMap[item.icon] || Award;
     return (
-      <motion.div
+      <div
         key={idx}
-        initial={{ opacity: 0, y: 15 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.4, delay: idx * 0.08 }}
         className="bg-slate-950/60 hover:bg-slate-950 border border-slate-800/80 hover:border-amber-500/30 p-6 sm:p-8 rounded-2xl flex flex-col justify-between transition-all duration-300 group shadow-lg h-full"
       >
         <div className="space-y-4">
@@ -37,7 +32,7 @@ export default function MengapaMemilih() {
             </p>
           </div>
         </div>
-      </motion.div>
+      </div>
     );
   });
 
