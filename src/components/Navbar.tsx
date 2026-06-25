@@ -82,7 +82,7 @@ export default function Navbar({ activeSection }: NavbarProps) {
               <div className="group-hover:scale-105 transition-transform duration-200 flex items-center justify-center">
                 <SakatoyoLogo className="h-10 w-10 sm:h-11 sm:w-11" />
               </div>
-              <span className="font-display font-bold text-sm text-white max-lg:text-xs max-lg:leading-tight">
+              <span className="font-display font-bold text-sm text-white max-lg:text-xs max-lg:leading-tight lg:hidden">
                 Sakatoyo Prima Resources
               </span>
             </a>

@@ -41,8 +41,6 @@ export default function Teknologi() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
           {teknologiPendekatan.items.map((item, idx) => {
             const IconComp = iconMap[item.icon] || Cpu;
-            const isFirst = idx === 0;
-
             return (
               <motion.div
                 key={item.title}
@@ -50,22 +48,14 @@ export default function Teknologi() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.4, delay: idx * 0.1 }}
-                className={`flex flex-col justify-between border rounded-2xl p-6 sm:p-8 transition-all duration-300 relative overflow-hidden group shadow-lg ${
-                  isFirst
-                    ? "md:col-span-2 lg:col-span-2 bg-gradient-to-br from-slate-900 to-slate-950 border-amber-500/30 hover:border-amber-500/60"
-                    : "bg-slate-900/60 hover:bg-slate-900 border-slate-800/80 hover:border-slate-700"
-                }`}
+                className="flex flex-col justify-between border rounded-2xl p-6 sm:p-8 transition-all duration-300 relative overflow-hidden group shadow-lg bg-slate-900/60 hover:bg-slate-900 border-slate-800/80 hover:border-slate-700"
               >
                 {/* Glow filter background on hover */}
                 <div className="absolute -top-10 -right-10 w-32 h-32 bg-amber-500/5 rounded-full blur-2xl group-hover:bg-amber-500/10 transition-all duration-300 pointer-events-none" />
 
                 <div className="space-y-6">
                   {/* Icon badge */}
-                  <div className={`inline-flex items-center justify-center p-3 rounded-xl border transition-colors ${
-                    isFirst 
-                      ? "bg-amber-500/10 text-amber-400 border-amber-500/20 group-hover:bg-amber-500 group-hover:text-slate-950" 
-                      : "bg-slate-950 text-slate-400 border-slate-800 group-hover:border-amber-500/30 group-hover:text-amber-400"
-                  }`}>
+                  <div className="inline-flex items-center justify-center p-3 rounded-xl border transition-colors bg-slate-900 text-amber-400 border-slate-800 group-hover:bg-amber-950/10 group-hover:text-amber-300">
                     <IconComp className="h-6 w-6" />
                   </div>
 

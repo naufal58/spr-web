@@ -145,7 +145,7 @@ export default function Layanan() {
                           {item.bullets.map((bullet, bIdx) => (
                             <li key={bIdx} className="flex items-center space-x-1.5 text-slate-300">
                               <CheckCircle2 className="h-3 w-3 text-amber-500 flex-shrink-0" />
-                              <span className="font-medium truncate">{bullet}</span>
+                              <span className="font-medium">{bullet}</span>
                             </li>
                           ))}
                         </ul>

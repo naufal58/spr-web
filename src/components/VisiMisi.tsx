@@ -71,7 +71,7 @@ export default function VisiMisi() {
                   transition={{ duration: 0.4, delay: idx * 0.1 }}
                   className="flex items-start space-x-4 bg-slate-950/60 hover:bg-slate-950 border border-slate-800/60 hover:border-slate-800 p-5 rounded-xl transition-all duration-200 group shadow-inner"
                 >
-                  <span className="flex-shrink-0 flex items-center justify-center font-mono font-bold text-lg h-9 w-9 rounded-lg bg-amber-500/10 text-amber-400 border border-amber-500/25 group-hover:bg-amber-500 group-hover:text-slate-950 transition-all duration-300">
+                  <span className="flex-shrink-0 flex items-center justify-center font-mono font-bold text-lg max-md:text-sm h-9 w-9 max-md:h-7 max-md:w-7 rounded-lg bg-amber-500/10 text-amber-400 border border-amber-500/25 group-hover:bg-amber-500 group-hover:text-slate-950 transition-all duration-300">
                     {idx + 1}
                   </span>
                   <div className="space-y-1">

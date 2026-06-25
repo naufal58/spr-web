@@ -212,8 +212,8 @@ export default function Hero() {
                   Overview
                 </h3>
 
-                <div className="space-y-6 max-md:space-y-3 text-sm sm:text-base max-md:text-xs text-slate-300 leading-relaxed font-sans font-light">
-                  <p className="text-white font-medium pl-3 border-l-2 border-amber-500">
+                <div className="space-y-6 max-md:space-y-3 text-sm sm:text-base text-slate-300 leading-relaxed font-sans font-light">
+                  <p className="text-white pl-3 border-l-2 border-amber-500">
                     {companyProfile.overviews[0]}
                   </p>
                   <p>
