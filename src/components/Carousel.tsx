@@ -1,4 +1,5 @@
-import { useState, useCallback, type ReactNode } from "react";
+import { useCallback, useEffect, useState, type ReactNode } from "react";
+import useEmblaCarousel from "embla-carousel-react";
 import { motion } from "motion/react";
 
 interface CarouselProps {
@@ -7,59 +8,64 @@ interface CarouselProps {
 }
 
 export default function Carousel({ items, className = "" }: CarouselProps) {
-  const [page, setPage] = useState(0);
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    loop: true,
+    align: "center",
+    skipSnaps: false,
+    dragFree: false,
+  });
+  const [selected, setSelected] = useState(0);
 
-  const goTo = useCallback((i: number) => {
-    setPage(i);
-    const el = document.getElementById(`carousel-card-${className}-${i}`);
-    el?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "start" });
-  }, [className]);
+  const onSelect = useCallback(() => {
+    if (!emblaApi) return;
+    setSelected(emblaApi.selectedScrollSnap());
+  }, [emblaApi]);
 
-  const handleScroll = useCallback((e: React.UIEvent<HTMLDivElement>) => {
-    const el = e.currentTarget;
-    const cardWidth = el.clientWidth * 0.8 + 16;
-    const raw = Math.round((el.scrollLeft + (el.clientWidth - el.clientWidth * 0.8) / 2) / cardWidth);
-    const idx = Math.max(0, Math.min(raw, items.length - 1));
-    setPage(idx);
-  }, [items.length]);
+  useEffect(() => {
+    if (!emblaApi) return;
+    onSelect();
+    emblaApi.on("select", onSelect);
+    return () => { emblaApi.off("select", onSelect); };
+  }, [emblaApi, onSelect]);
+
+  const scrollTo = useCallback((i: number) => {
+    emblaApi?.scrollTo(i);
+  }, [emblaApi]);
 
   if (items.length === 0) return null;
 
   return (
     <div className={`relative ${className}`}>
-      {/* Mobile: carousel with snap and peek */}
+      {/* Mobile: Embla carousel with loop */}
       <div className="md:hidden -mx-4 px-4">
-        <div
-          onScroll={handleScroll}
-          className="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth py-4"
-          style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
-        >
-          {items.map((child, idx) => (
-            <div
-              key={idx}
-              id={`carousel-card-${className}-${idx}`}
-              className="snap-start shrink-0 w-[80%]"
-            >
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.4 }}
-                className="min-h-[300px] h-full"
+        <div className="overflow-hidden py-4" ref={emblaRef}>
+          <div className="flex gap-4">
+            {items.map((child, idx) => (
+              <div
+                key={idx}
+                className="shrink-0 grow-0 min-w-0 w-[80%]"
               >
-                {child}
-              </motion.div>
-            </div>
-          ))}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.4 }}
+                  className="min-h-[300px] h-full"
+                >
+                  {child}
+                </motion.div>
+              </div>
+            ))}
+          </div>
         </div>
 
         <div className="flex items-center justify-center gap-2 mt-6">
           {items.map((_, i) => (
             <button
               key={i}
-              onClick={() => goTo(i)}
+              onClick={() => scrollTo(i)}
               className={`rounded-full transition-all ${
-                i === page
+                i === selected
                   ? "bg-amber-500 w-8 h-2.5"
                   : "bg-slate-700 hover:bg-slate-500 w-2.5 h-2.5"
               }`}
