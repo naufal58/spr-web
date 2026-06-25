@@ -1,5 +1,5 @@
-import { useState, useCallback, useRef, type ReactNode } from "react";
-import { motion, AnimatePresence } from "motion/react";
+import { useState, useCallback, type ReactNode } from "react";
+import { motion } from "motion/react";
 
 interface CarouselProps {
   items: ReactNode[];
@@ -8,69 +8,49 @@ interface CarouselProps {
 
 export default function Carousel({ items, className = "" }: CarouselProps) {
   const [page, setPage] = useState(0);
-  const [dir, setDir] = useState(1);
-  const touchStart = useRef(0);
-  const totalPages = items.length;
 
   const goTo = useCallback((i: number) => {
-    const next = ((i % totalPages) + totalPages) % totalPages;
-    setDir(next > page ? 1 : -1);
-    setPage(next);
-  }, [page, totalPages]);
+    setPage(i);
+    const el = document.getElementById(`carousel-card-${className}-${i}`);
+    el?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "start" });
+  }, [className]);
 
-  const handleTouchStart = useCallback((e: React.TouchEvent) => {
-    touchStart.current = e.touches[0].clientX;
-  }, []);
-
-  const handleTouchEnd = useCallback((e: React.TouchEvent) => {
-    const diff = touchStart.current - e.changedTouches[0].clientX;
-    if (Math.abs(diff) > 40) {
-      goTo(diff > 0 ? page + 1 : page - 1);
-    }
-  }, [goTo, page]);
+  const handleScroll = useCallback((e: React.UIEvent<HTMLDivElement>) => {
+    const el = e.currentTarget;
+    const cardWidth = el.clientWidth * 0.8 + 16;
+    const raw = Math.round((el.scrollLeft + (el.clientWidth - el.clientWidth * 0.8) / 2) / cardWidth);
+    const idx = Math.max(0, Math.min(raw, items.length - 1));
+    setPage(idx);
+  }, [items.length]);
 
   if (items.length === 0) return null;
 
-  const nextIdx = ((page + 1) % totalPages + totalPages) % totalPages;
-  const prevIdx = ((page - 1) % totalPages + totalPages) % totalPages;
-
   return (
     <div className={`relative ${className}`}>
-      {/* Mobile: carousel with drag, peek, seamless loop */}
+      {/* Mobile: carousel with snap and peek */}
       <div className="md:hidden -mx-4 px-4">
         <div
-          className="relative overflow-hidden py-4"
-          onTouchStart={handleTouchStart}
-          onTouchEnd={handleTouchEnd}
+          onScroll={handleScroll}
+          className="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth py-4"
+          style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
         >
-          <div className="flex items-stretch">
-            {/* Previous card peek (left side) */}
-            <div className="w-[10%] min-w-[10%] flex-shrink-0 relative z-0">
-              <div className="absolute inset-0 rounded-2xl border border-slate-800/80 bg-slate-900/60 opacity-40 scale-[0.85] origin-right" />
+          {items.map((child, idx) => (
+            <div
+              key={idx}
+              id={`carousel-card-${className}-${idx}`}
+              className="snap-start shrink-0 w-[80%]"
+            >
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.4 }}
+                className="min-h-[300px] h-full"
+              >
+                {child}
+              </motion.div>
             </div>
-
-            {/* Current card */}
-            <div className="w-[80%] flex-shrink-0 relative z-10">
-              <AnimatePresence mode="wait" custom={dir}>
-                <motion.div
-                  key={page}
-                  custom={dir}
-                  initial={{ opacity: 0, x: dir * 100 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: dir * -100 }}
-                  transition={{ duration: 0.3, ease: "easeInOut" }}
-                  className="min-h-[300px] h-full"
-                >
-                  {items[page]}
-                </motion.div>
-              </AnimatePresence>
-            </div>
-
-            {/* Next card peek (right side) */}
-            <div className="w-[10%] min-w-[10%] flex-shrink-0 relative z-0">
-              <div className="absolute inset-0 rounded-2xl border border-slate-800/80 bg-slate-900/60 opacity-40 scale-[0.85] origin-left" />
-            </div>
-          </div>
+          ))}
         </div>
 
         <div className="flex items-center justify-center gap-2 mt-6">
