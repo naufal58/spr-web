@@ -201,8 +201,8 @@ export const kontakInfo = {
   region: "Jawa Barat – Indonesia",
   phone: "+62 22-63173009",
   email: "support@sakatoyo.id",
-  website: "www.sakatoyo.id",
-  rawWebsite: "https://www.sakatoyo.id",
+  website: "sakatoyo.id",
+  rawWebsite: "https://sakatoyo.id",
   coordination: {
     lat: -6.937299, 
     lng: 107.610543
